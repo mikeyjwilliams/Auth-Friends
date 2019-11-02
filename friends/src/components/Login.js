@@ -20,6 +20,7 @@ function Login(props) {
       .then(res => {
         console.log(res.data.payload);
         localStorage.setItem('token', res.data.payload);
+        props.history.push('/showfriends');
       })
       .catch(err => {
         console.log(err);
