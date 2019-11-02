@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../utils/api';
+import Friend from './Friend';
 
 function ShowFriends(props) {
   const [friends, setFriends] = useState();
@@ -16,10 +17,13 @@ function ShowFriends(props) {
         console.log(error);
       });
   }, []);
-  console.log('friends', friends);
+
+  if (!friends) return <h3>Loading</h3>;
   return (
     <div>
-      <p>show friends</p>
+      {friends.map(friend => (
+        <Friend friend={friend} key={friend.id} />
+      ))}
     </div>
   );
 }
