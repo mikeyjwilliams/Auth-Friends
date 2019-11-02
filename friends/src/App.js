@@ -22,7 +22,7 @@ function App() {
 
       <Route exact path='/' component={Home} />
       <Route exact path='/signin' component={Login} />
-      <ProtectedRoute exact to='/addfriend' component={AddFriend} />
+      <ProtectedRoute exact path='/addfriend' component={AddFriend} />
       <ProtectedRoute exact path='/showfriends' component={ShowFriends} />
     </div>
   );
