@@ -18,7 +18,8 @@ function Login(props) {
     api()
       .post('/api/login', userData)
       .then(res => {
-        console.log(res);
+        console.log(res.data.payload);
+        localStorage.setItem('token', res.data.payload);
       })
       .catch(err => {
         console.log(err);
