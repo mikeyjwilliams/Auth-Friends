@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import api from '../utils/api';
 
 function Login(props) {
   const [userData, setUserData] = useState({
@@ -12,9 +13,21 @@ function Login(props) {
       [e.target.name]: e.target.value
     });
   };
+  const handleSubmit = e => {
+    e.preventDefault();
+    api()
+      .post('/api/login', userData)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor='username'>Name:</label>
         <input
           type='text'
@@ -34,6 +47,7 @@ function Login(props) {
           onChange={handleChange}
           value={userData.password}
         />
+        <button type='submit'>Sign in</button>
       </form>
     </>
   );
