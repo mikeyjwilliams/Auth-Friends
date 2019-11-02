@@ -5,6 +5,13 @@ function Login(props) {
     username: '',
     password: ''
   });
+
+  const handleChange = e => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value
+    });
+  };
   return (
     <>
       <form>
@@ -13,8 +20,20 @@ function Login(props) {
           type='text'
           id='username'
           name='username'
-          placeholder='Username'
-        />{' '}
+          placeholder='Username...'
+          onChange={handleChange}
+          value={userData.username}
+        />
+        <br />
+        <label htmlFor='user-password'>Password:</label>
+        <input
+          type='password'
+          id='user-password'
+          name='password'
+          placeholder='Password...'
+          onChange={handleChange}
+          value={userData.password}
+        />
       </form>
     </>
   );
