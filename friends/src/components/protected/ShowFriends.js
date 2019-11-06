@@ -3,7 +3,7 @@ import api from '../../utils/api';
 import Friend from './Friend';
 
 function ShowFriends(props) {
-  const [friends, setFriends] = useState();
+  const { friends, setFriends } = props;
   const [error, setError] = useState();
 
   useEffect(() => {
